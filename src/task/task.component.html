@@ -1,0 +1,37 @@
+
+   <div *ngIf="showToast" class="toast">Migration process has been completed.
+    <button type="button" class="btn-close" (click)="closeToast()"></button>
+   </div>
+   <div class="fixed-top" *ngIf="!showToast" style="right: 20px; z-index: 1030; top: unset; left: auto;" [ngClass]="isVisible ? 'bottom-130' : 'bottom-0'">
+        <button class="btn btn-primary" (click)="toggleVisibility()">
+          <i class="bi" [ngClass]="isVisible ? 'bi-chevron-up' : 'bi-chevron-down'" style="color: white;"></i>
+        </button>
+      </div>
+<div class="offcanvas offcanvas-bottom margin" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" [class.show]="isVisible">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasBottomLabel">Migrating data to selected environment</h5>
+      <button type="button" class="btn-close" (click)="toggleVisibility()"></button>
+    </div>
+    <div>
+        
+    </div>
+    <div class="same-line">
+        {{ progress }}%
+      </div>
+    <div class="offcanvas-body">
+
+      <div *ngIf="isContentVisible">
+        <div class="d-flex align-items-center">
+          <div class="progress w-100">
+            <div class="progress-bar" 
+                 role="progressbar" 
+                 [style.width.%]="progress" 
+                 [attr.aria-valuenow]="progress" 
+                 aria-valuemin="0" 
+                 aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
